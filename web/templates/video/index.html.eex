@@ -14,7 +14,7 @@
   <tbody>
 <%= for video <- @videos do %>
     <tr>
-      <td><%= video.user.name %></td>
+      <td><%= link video.user.name, to: user_path(@conn, :show, video.user) %></td>
       <td><%= video.url %></td>
       <td><%= video.title %></td>
       <td><%= video.description %></td>
