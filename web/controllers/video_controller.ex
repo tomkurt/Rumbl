@@ -11,7 +11,7 @@ defmodule Rumbl.VideoController do
   end
 
   def index(conn, _params, user) do
-    videos = Repo.all(user_videos(user))
+    videos = Repo.all(user_videos(user)) |> Rumbl.Repo.preload(:user)
     render(conn, "index.html", videos: videos)
   end
 
